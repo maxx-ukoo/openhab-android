@@ -68,3 +68,15 @@ For using map view support in the "full" build flavor, you need to visit the [Ma
 Product names, logos, brands and other trademarks referred to within the openHAB website are the property of their respective trademark holders. These trademark holders are not affiliated with openHAB or our website. They do not sponsor or endorse our materials.
 
 Google Play and the Google Play logo are trademarks of Google Inc.
+
+## Local build with docker
+
+Create apk signature:
+```sh
+keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+```
+Copy my-release-key.keystore to mobile folder.
+Run apk build:
+```sh
+docker run --rm -v `pwd`:/project mingc/android-build-box bash -c 'cd /project; ./gradlew build'
+```

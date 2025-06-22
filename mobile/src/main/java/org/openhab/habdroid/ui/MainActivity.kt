@@ -1514,17 +1514,6 @@ class MainActivity :
             }
         }
 
-        if (missingPermissions.isNotEmpty()) {
-            Log.d(TAG, "At least one permission for background tasks has been denied")
-            showSnackbar(
-                SNACKBAR_TAG_MISSING_PERMISSIONS,
-                R.string.settings_permission_denied,
-                length,
-                R.string.settings_background_tasks_permission_allow
-            ) {
-                requestPermissionsIfRequired(missingPermissions.toTypedArray(), permissionRequestNoActionCallback)
-            }
-        }
     }
 
     private fun setupUiCommandItem() {
